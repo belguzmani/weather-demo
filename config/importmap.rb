@@ -9,3 +9,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 # Bootstrap gem
 pin "popper", to: 'popper.js', preload: true
 pin "bootstrap", to: 'bootstrap.min.js', preload: true
+pin "color-modes", to: 'color-modes.js', preload: true
