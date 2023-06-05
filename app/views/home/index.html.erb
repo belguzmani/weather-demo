@@ -1,6 +1,6 @@
 <%= form_tag home_index_path, method: :get, html: { class: "w-100" } do |f| %>
   <div class="input-group">
-    <%= text_field_tag :location, location_term, placeholder: "Zip code", class: "form-control" %>
+    <%= text_field_tag :location, location_term, placeholder: "Zip code (US only)", class: "form-control" %>
     <%= submit_tag "Search", class: "btn btn-secondary" %>
   </div>
 <% end %>
