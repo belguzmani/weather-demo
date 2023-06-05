@@ -49,10 +49,12 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem 'bootstrap', '~> 5.3.0.alpha3'
+gem 'open-weather-ruby-client'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry'
 end
 
 group :development do

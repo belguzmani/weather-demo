@@ -1,0 +1,34 @@
+<%= form_tag home_index_path, method: :get, html: { class: "w-100" } do |f| %>
+  <div class="input-group">
+    <%= text_field_tag :location, location_term, placeholder: "Zip code", class: "form-control" %>
+    <%= submit_tag "Search", class: "btn btn-secondary" %>
+  </div>
+<% end %>
+
+<hr />
+<% unless location_term.blank? %>
+  <% if @weather_data.nil? %>
+    <div class="alert alert-light" role="alert">Location not found</div>
+  <% else %>
+    <div class="card shadow-0 border">
+      <div class="card-body p-4">
+
+        <h4 class="mb-1 sfw-normal"><%= @weather_data.location %></h4>
+        <p class="mb-2">Current temperature: <strong><%= @weather_data.temp %>°F</strong></p>
+        <p>Feels like: <strong><%= @weather_data.feels_like %>°C</strong></p>
+        <p>
+          Max: <strong><%= @weather_data.temp_max %>°C</strong>,
+          Min: <strong><%= @weather_data.temp_min %>°C</strong>
+        </p>
+
+        <% if @weather_data.remote_loaded %>
+          <small>Just Synced</small>
+        <% else %>
+          <small>
+            Cached (Will sync in <%= @weather_data.time_until_next_sync %> mins)
+          </small>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
