@@ -1,0 +1,20 @@
+<div class="card shadow-0 border">
+  <div class="card-body p-4">
+
+    <h4 class="mb-1 sfw-normal"><%= @weather_temperature.location %></h4>
+    <p class="mb-2">Current temperature: <strong><%= @weather_temperature.temp %>°F</strong></p>
+    <p>Feels like: <strong><%= @weather_temperature.feels_like %>°C</strong></p>
+    <p>
+      Max: <strong><%= @weather_temperature.temp_max %>°C</strong>,
+      Min: <strong><%= @weather_temperature.temp_min %>°C</strong>
+    </p>
+
+    <% if @weather_temperature.remote_loaded %>
+      <small>Just Synced</small>
+    <% else %>
+      <small>
+        Cached (Will sync in <%= @weather_temperature.time_until_next_sync %> mins)
+      </small>
+    <% end %>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     unless location_term.blank?
-      @weather_data = WeatherTemperature.current_weather_for(location_term)
+      @weather_temperature = WeatherTemperature.current_weather_for(location_term)
     end
   end
 
